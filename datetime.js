@@ -13,7 +13,7 @@ console.log(typeof(mydate));
 let mydate2 = new Date(2023, 9, 1, 12, 0, 0);
 console.log(mydate2.toString());
 let date = new Date("2023-10-01");
-console.log(date.toLocaleString());
+console.log(date.toLocaleString()); 
 
 let timeStmap = Date.now();
 console.log(timeStmap);
