@@ -31,3 +31,6 @@ ${typeof person[symbol]}`);
 
     console.log(person.greeting()); // Calling the new method
     console.log(person.greeting)
+
+
+    
