@@ -63,7 +63,7 @@ for (const [key, value] of map) {
 
 
 
- // Using forEach with an object
+ // Using forEach with an object and how to access its element
  const userObj = 
     [{
         name: "John",
