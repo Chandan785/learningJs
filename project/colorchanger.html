@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color changer</title>
+ <style>
+        body {
+            background-color: #212121;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        .colors {
+            display: inline-block;
+            padding: 20px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .colors:hover {
+            transform: scale(1.1);
+        }
+        #red { background-color: red; }
+        #yellow { background-color: yellow; color: black; }
+        #blue { background-color: blue; }
+        #orange { background-color: orange; color: black; }
+        #green { background-color: green; }
+        #purple { background-color: purple; }
+        #pink { background-color: pink; color: black; } 
+        #brown { background-color: brown; color: white; }
+        #gray { background-color: gray; color: black; }
+
+ </style>
+</head>
+<body>
+<h1>Color Changer</h1>
+    <p>Click on the color names to change the background color of the page.</p>
+
+    <div class="colors" id="red">Red</div>
+    <div class="colors"id="yellow"> yellow</div>
+    <div class="colors"id="blue"> Blue</div>
+    <div class="colors"id="orange">Orange</div>
+    <div class="colors"id="green">Green</div>
+   <div class="colors"id="purple">Purple</div>
+    <div class="colors"id="pink">Pink</div>
+    <div class="colors"id="brown">Brown</div>
+    <div class="colors"id="gray">Gray</div>
+</body>
+
+<script>
+    document.querySelectorAll('.colors').forEach(color => {
+        color.addEventListener('click', () => {
+            document.body.style.backgroundColor = color.id;
+        });
+    });
+</script>
+</html>

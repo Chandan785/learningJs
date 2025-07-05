@@ -38,10 +38,15 @@
     optimiseways("Java");
     optimiseways("C++");    
     optimiseways("C#");
-    
+  //  const lastlanguage = document.querySelector(".language li:nth-child(2)");
+      const lastlanguage = document.querySelector(".language li:last-child");
+      lastlanguage.style.color="yellow";
+      lastlanguage.style.fontSize="20px";
+    // lastlanguage.remove();
 
    function addVersion(lanname, version){
         const languages = document.querySelectorAll(".language li");
+       
         languages.forEach((language) => {
             if(language.innerHTML === lanname){
                 const li = document.createElement("li");
@@ -93,6 +98,8 @@ function addFramework(lanname, framework){
         });
     }
     removeLanguage("Python");
+
+    
 
 </script>
 </html>
