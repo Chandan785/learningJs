@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM with javascrpit</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation</h1> 
+     <ul class="language">
+        <li>
+            <h2> Differente Languages</h2>     
+        </li>
+     </ul>
+</body>
+
+<script>
+    function addLanguage(lanname){
+        const li =document.createElement("li");
+        li.innerHTML=`${lanname}`;
+        document.querySelector(".language").appendChild(li);    
+        }
+    addLanguage("JavaScript");
+    addLanguage("Python");
+    
+
+    function optimiseways(langName){
+        const li= document.createElement("li");
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector(".language").appendChild(li);
+    }
+    optimiseways("Java");
+    optimiseways("C++");    
+    optimiseways("C#");
+    
+
+   function addVersion(lanname, version){
+        const languages = document.querySelectorAll(".language li");
+        languages.forEach((language) => {
+            if(language.innerHTML === lanname){
+                const li = document.createElement("li");
+                li.innerHTML = `Version: ${version}`;
+                language.appendChild(li);
+            }
+        });
+    }
+    addVersion("JavaScript", "ES6");
+    addVersion("Python", "3.9");
+
+
+function addFramework(lanname, framework){
+        const languages = document.querySelectorAll(".language li");
+        languages.forEach((language) => {
+            if(language.innerHTML === lanname){
+                const li = document.createElement("li");
+                li.innerHTML = `Framework: ${framework}`;
+                language.appendChild(li);
+            }
+        });
+    }
+    addFramework("JavaScript", "React");
+    addFramework("Python", "Django");
+
+
+   function changeLanguage(oldName, newName){
+        const languages = document.querySelectorAll(".language li");
+        languages.forEach((language) => {
+            if(language.innerHTML === oldName){
+                language.innerHTML = newName;
+            }
+        });
+    }
+    changeLanguage("JavaScript", "TypeScript");
+
+    function changeHeading(newHeading){
+        const heading = document.querySelector("h1");
+        heading.innerHTML = newHeading;
+    }
+    changeHeading("DOM Manipulation with JavaScript");
+
+    function removeLanguage(lanname){
+        const languages = document.querySelectorAll(".language li");
+        languages.forEach((language) => {
+            if(language.innerHTML === lanname){
+                language.remove();
+            }
+        });
+    }
+    removeLanguage("Python");
+
+</script>
+</html>
