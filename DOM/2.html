@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #232222;
+            color: #eae5e5;
+            text-align: center;
+            padding: 50px;
+        }
+        .days{
+            font-size: large;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="parent">
+         <div class="days">monday</div>
+    <div class="days">tudesday</div>
+    <div class="days">thrusday</div>
+    <div class="days">wednesday</div>
+    </div>
+    
+</body>
+<script>
+    const days = document.querySelectorAll('.days');
+    days.forEach(day => {
+        day.style.color = 'blue';
+        day.style.fontSize = '20px';
+    });
+    const parent = document.querySelector('.parent');
+    console.log(parent.children['2']);
+    parent.style.backgroundColor = 'lightgray';  
+
+    </script>
+</html>
