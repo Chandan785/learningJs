@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guess</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 200px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+
+        input[type="number"], button {
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button:hover {
+            background-color: #f0f0f0;
+        }
+        #result {
+            color: #d9534f; /* Bootstrap danger color */
+        }
+        @media (max-width: 600px) {
+            input[type="number"] {
+                width: 100%;
+            }
+            button {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p>Guess a number between 1 and 100</p>
+    <input type="number" id="guessInput" placeholder="Enter your guess">
+    <button id="guessButton">Submit Guess</button>
+    <p id="result"></p>
+
+     <div class="resultParse">
+        <p>Result will be displayed here</p>
+        <p id="previous">previous gusses</p>
+        <p id="remaining">gusses remaining</p>
+     </div>
+  
+</body>
+  <script>
+        const randomNumber = Math.floor(Math.random() *100) + 1;
+        const guessButton = document.getElementById('guessButton');
+        const guessInput = document.getElementById('guessInput'); 
+        const result = document.getElementById('result');
+        const remaining = document.getElementById('remaining');
+        const previous = document.getElementById('previous');
+        let attempts = 0;
+        let previousGuesses = [];
+        remaining.textContent = 'Attempts remaining: 10';
+
+        guessButton.addEventListener('click', function() {
+            const userGuess = parseInt(guessInput.value);
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+                result.textContent = 'Please enter a valid number between 1 and 100.';
+                return;
+            }
+            attempts++;
+            previousGuesses.push(userGuess);
+            previous.textContent = 'Previous guesses: ' + previousGuesses.join(', ');
+            remaining.textContent = 'Attempts remaining: ' + (10 - attempts);
+
+            if (attempts >= 10) {
+                result.textContent = `Game over! The number was ${randomNumber}.`;
+                guessButton.disabled = true;
+                return;
+            }
+
+            if (userGuess === randomNumber) {
+                result.textContent = 'Congratulations! You guessed the number!';
+                guessButton.disabled = true;
+            } else if (userGuess < randomNumber) {
+                result.textContent = 'Too low! Try again.';
+            } else {
+                result.textContent = 'Too high! Try again.';
+            }
+        });
+        // Reset game functionality
+        const resetButton = document.createElement('button');
+        resetButton.textContent = 'Reset Game';
+        document.body.appendChild(resetButton);
+
+        resetButton.addEventListener('click', function() {
+            attempts = 0;
+            previousGuesses = [];
+            remaining.textContent = 'Attempts remaining: 10';
+            previous.textContent = 'Previous guesses: ';
+            result.textContent = '';
+            guessInput.value = '';
+            guessButton.disabled = false;
+        });
+
+        
+    </script>
+</html>
