@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Key Activity</title>
+</head>
+<body>
+    <h1 id="insert">Track Key Activity</h1>
+</body>
+<script>
+    const key = document.querySelector('#insert');
+
+    window.addEventListener('keydown', (e) => {
+        key.innerHTML = `
+        <table style="width:100%; border: 1px solid black; border-collapse: collapse;">
+            <tr>
+                <th style="border: 1px solid black;">Key</th>
+                <th style="border: 1px solid black;">KeyCode</th>
+                <th style="border: 1px solid black;">Code</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid black;">${e.key}</td>
+                <td style="border: 1px solid black;">${e.keyCode}</td>
+                <td style="border: 1px solid black;">${e.code}</td>
+            </tr>
+        </table>`;
+    });
+</script>
+</html>

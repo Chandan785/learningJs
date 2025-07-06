@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event timeout </title>
+</head>
+<body>
+   <h1 id="chand">learning javascript</h1>
+    <button id="stop">stop</button>
+    <button id="Start">start</button>
+
+</body>
+<script>
+  let intervalId = null;
+  
+const saydate = function () {
+    //console.log("chandan kumar", Date.now());
+     let date = new Date();
+    document.querySelector('h1').innerHTML = `Start to finish the course ${date.toLocaleTimeString()}`
+    
+
+}
+
+document.querySelector('#stop').addEventListener('click', function () {
+    clearInterval(intervalId);
+    intervalId = null; // Reset interval ID
+    console.log("stopped");
+});
+
+document.querySelector("#Start").addEventListener('click', function () {
+    if (intervalId === null) { // Only start if not already running
+        intervalId = setInterval(saydate, 1000);
+        console.log("started");
+    } else {
+        console.log("already running");
+    }
+});
+
+    
+</script>
+
+
+</html>
